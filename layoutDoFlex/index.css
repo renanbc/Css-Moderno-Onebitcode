@@ -1,0 +1,127 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/*  
+GAP:
+    gap: espaçamento para coluna e para linha.
+    row-gap: espaçamento quando os itens estiverem em coluna.
+    colunm gap: espaçamento quando os itens estiverem em linha.
+*/
+
+/*
+justify-content:
+    
+    space-around: mesmo espaçamento das bordas até os itens.
+    space-betweem: vai buscar deixar os itens mais separados possível.
+    space-evelyn: vai buscar deixar o mesmo espaçamento entre os itens.
+
+    OBS.: quando usamos o "flex-direction: colunm;", o justify-content continua funcionando da mesma forma, mas não na horizontal, e sim na vertical.
+*/
+
+/* 
+Align-itens:
+    
+    existem algumas propriedades como:
+        flex-start - que é o padrão.
+        flex-end - que deixa os itens no fim da página.
+        center - centraliza os itens.
+        stretch - estica os itens, mas para isso teríamos q remover o HEIGHT para esticar na vertical ou o WIDTH para esticar na horizontal.
+*/
+
+/* 
+FLEX-WRAP: serve para quebrar os itens.
+
+    WRAP - quando diminuímos a tela, ele quabra os itens para baixo. E se não tivermos um min-width, ele também diminuirá os itens se a tela ficar muito pequena.
+    WRAP-REVERSE - quebra os itens para cima, no caso o ultimo item vai para cima e assim por diante.
+*/
+
+.container{
+    background-color: darkgray;
+    min-height: 100vh;
+    display: flex;
+    gap: 0px 15px;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    /* flex-wrap: wrap; */
+}
+
+.item{
+    width: 200px;
+    height: 70px;
+    border: 2px solid black;
+    background-color: #fff;
+    font-size: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+
+    
+    /* os itens podem se transformar em containers e alinhar eles no centro também, acrescentando:
+        display: flex;
+        justify-content: center;
+        align-itens: center; 
+    */
+}
+
+.item1{
+    order: 2;
+    /* align-self: flex-end; */
+}
+
+.item2{
+    order: 3;
+}
+
+.item3{
+    order: 1;
+}
+
+@media(max-width: 390px){
+    .item2{
+        flex: 1 0 620px;
+    }
+}
+
+/* FLEX-BASIS: 
+        O flex basis é o tamanho do item. Nós vamos tirar o width e colocar o flex-basis. A diferença entre eles é mínima, nós vamos utilizar o basis por ser algo mais “correto”, acaba sendo uma boa prática utilizar o elemento do flex, já que estamos usando o flex. 
+*/
+
+/* FLEX-GROW:
+       O flex-grow é uma forma que temos de aumentar o tamanho dos itens sem fazer com que eles quebrem de forma imediata, nós vamos colocar através de números, colocaremos 1. 
+       
+       Podemos ver que todos os itens ficaram com o mesmo tamanho, preenchendo todo o espaço disponível que eles tem. A junção dele e do flex-basis é importante para ativar o wrap. Nós colocando aqui em inspecionar e diminuindo a tela, vemos que quando chegar o item em 200px, eles vão quebrar e vai descer, sem o basis, isso não acontece.
+       
+       Nós também podemos fazer o aumento de um item de forma individual usando o flex-grow.
+            
+            .item1{
+                flex-grow: 2;
+            }
+
+        Conseguimos ver que o item 1 agora está muito maior que os outros, fizemos com, que de forma individual, ele crescece.
+*/
+
+/* FLEX-SHRINK:
+       O flex-shrink está ligado agora a diminuição dos nossos itens. Nós vamos usar no item 1 esse shrink, o valor padrão dele é 1, vamos colocar 2, isso vai fazer com que ele diminuia primeiro em relação aos outros 2 quando chegar no limite do basis. Vamos desativar o “wrap” para conseguir ver isso acontecendo de fato.
+
+            .item1{
+                flex-shrink: 2;
+            }
+
+        Podemos ver que quando diminuímos, em um certo momento, o item 1 começa a diminuir mais do que os outros e em “364px” ele fica bem menor que os outros.
+
+        Agora, acontece o inverso caso a gente coloque 0 nesse nosso shrink. Isso vai fazer que ele não diminua quando chegar em 200px, que é o nosso basis.
+            
+            .item1{
+                flex-shrink: 0;
+            }
+*/
+
+/* FLEX: 1 0 200px; 
+        
+        Onde o "1" é o FLEX-GROW, "0" é o FLEX-SHRINK e o "200px" é o FLEX-BASIS.
+*/
