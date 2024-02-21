@@ -92,7 +92,7 @@ width: 180px;
 
 .categoryCard:hover{
     border-color: #000;
-    box-shadow: 10px 0 30px 0;
+    box-shadow: 20px 35px 40px 0;
     transform: translateY(-50px);
     transition: transform 0.5s;
 }
@@ -139,6 +139,8 @@ width: 180px;
 
 .sidebarCard:hover{
     border-color: #dcdcdc;
+    transform: translateY(-15px);
+    transition: transform 0.5s;
 }
 
 .footer{
