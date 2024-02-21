@@ -23,13 +23,13 @@
     gap: 8px 15px;
 }
 
-.logoNavBar{
-    width: 180px;
-}
-
 .headerBtnGroup{
     display: flex;
     gap: 15px;
+}
+
+.logoNavBar{
+width: 180px;
 }
 
 .navBtn{
@@ -66,16 +66,12 @@
     flex: 1 0 auto;
 }
 
-.mainCardImg{
-    width: 100%;
-    height: 180px;
-    border-radius: 10px;
-}
-
-.sidebarCardImg{
-    width: 100%;
-    height: 100;
-    border-radius: 10px;
+.mainContent{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    grid-area: mainContent;
 }
 
 .categoryCard{
@@ -87,12 +83,10 @@
     cursor: pointer;
 }
 
-.mainContent{
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 10px;
-    grid-area: mainContent;
+.mainCardImg{
+    width: 100%;
+    height: 180px;
+    border-radius: 10px;
 }
 
 .categoryCard:hover{
@@ -100,5 +94,95 @@
 }
 
 .mainCategoryCardTitle{
-    
+    font-family: Arial, Helvetica, sans-serif;
+    padding: 6px;
+}
+
+.mainCategoryCardDescription{
+    padding: 6px;
+}
+
+.sidebarContent{
+    background-color: #383838;
+    color: #fff;
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-width: 300px;
+    grid-area: sidebarContent;
+    gap: 20px;
+}
+
+.sidebarCard{
+    width: 75%;
+    border: 1px solid transparent;
+    border-radius: 10px;
+    transition: 0.5s;
+    cursor: pointer;
+}
+
+.sidebarCardImg{
+    width: 100%;
+    border-radius: 10px;
+}
+
+.sidebarCardTitle{
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: center;
+    padding: 10px;
+}
+
+.sidebarCard:hover{
+    border-color: #dcdcdc;
+}
+
+.footer{
+    width: 100%;
+    min-height: 40px;
+    background-color: #292929;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    padding: 30px;
+    gap: 15px;
+}
+
+.logoFooter{
+    width: 180px;
+}
+
+.footerAnchor{
+    color: #fff;
+    text-decoration: none;
+}
+
+@media(max-width: 630px) {
+    .contentSection{
+        grid-template-areas:
+          "mainContent"
+          "sidebarContent";
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          gap: 10px;
+    }
+
+    .sidebarContent{
+        min-width: auto;
+    }
+
+    .footerAnchor{
+        font-size: 19px;
+    }
+}
+
+@media(max-width: 463px) {
+    .header{
+        justify-content: center;
+    }
+    .footer{
+        justify-content: center;
+    }
 }
